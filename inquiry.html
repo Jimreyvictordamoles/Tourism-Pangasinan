@@ -97,64 +97,7 @@
         <p>© 2026 Pangasinan Tourism Website | Created by JVD</p>
     </footer>
 
-    <script>
-    document.getElementById("inquiryForm").addEventListener("submit", function(e){
-        e.preventDefault();
-
-        let valid = true;
-
-        document.querySelectorAll(".error").forEach(el => el.innerText = "");
-
-        let name = document.getElementById("name").value.trim();
-        let email = document.getElementById("email").value.trim();
-        let contact = document.getElementById("contact").value.trim();
-        let destination = document.getElementById("destination").value;
-        let date = document.getElementById("date").value;
-        let visitors = document.getElementById("visitors").value;
-        let message = document.getElementById("message").value.trim();
-
-       if(name.trim().split(" ").length < 2){
-            document.getElementById("nameError").innerText = "Please enter your full name";
-            valid = false;
-        }
-
-        let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if(!emailPattern.test(email)){
-            document.getElementById("emailError").innerText = "Enter a valid email";
-            valid = false;
-        }
-
-        if(!/^[0-9]+$/.test(contact)){
-            document.getElementById("contactError").innerText = "Contact must be numbers only";
-            valid = false;
-        }
-
-        if(destination === ""){
-            document.getElementById("destinationError").innerText = "Please select a destination";
-            valid = false;
-        }
-
-        if(date === ""){
-            document.getElementById("dateError").innerText = "Travel date is required";
-            valid = false;
-        }
-
-        if(visitors < 1){
-            document.getElementById("visitorsError").innerText = "At least 1 visitor required";
-            valid = false;
-        }
-
-        if(message === ""){
-            document.getElementById("messageError").innerText = "Message is required";
-            valid = false;
-        }
-
-        if(valid){
-            alert("Inquiry submitted successfully!");
-            this.reset();
-        }
-    });
-    </script>
+    <script src="script/script.js"></script>
 
 </body>
 </html>

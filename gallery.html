@@ -65,58 +65,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <script>
-        const gallery = [
-            "Hundred Islands National Park", "Bolinao White Beach", "Anda Blue Lagoon", "Manaoag Church", "Lingayen Beach Sunset", "Cape Bolinao Lighthouse", "Patar Beach", "Enchanted Cave Bolinao", "Tondol Beach Anda", "Lingayen Gulf View", "Bolinao Falls", "Governor’s Island", "Quezon Island", "Children’s Island", "Lucap Wharf", "Bani Salt Farms", "Dagupan Bangus Festival", "Pangasinan Street Food", "Calasiao Puto", "Pangasinan Longganisa", "Fishing in Lingayen Gulf", "Sunrise in Anda", "Island Hopping View", "Rock Formations Bolinao", "Mangrove Forest Tour", "Local Fishermen Life", "Sunset by the Coast", "Beach Camping Experience", "Crystal Clear Waters", "Island Adventure Moments"
-        ];
-
-        let currentIndex = 0;
-        let modalInstance;
-
-        function loadGallery() {
-            const container = document.getElementById("galleryList");
-
-            for (let i = 1; i <= 30; i++) {
-                container.innerHTML += `
-                
-                <div class="col-6 col-md-4 col-lg-3">
-                    <img src="images/gallery${i}.jpg"
-                    class="w-100 rounded shadow"
-                    style="height:180px; object-fit:cover;"
-                    onclick="openModal(${i - 1})">
-                </div>
-                `;
-            }
-        }
-
-        function openModal(index) {
-            currentIndex = index;
-
-            document.getElementById("galleryImg").src = `images/gallery${index + 1}.jpg`;
-            document.getElementById("galleryCaption").innerText = gallery[index];
-
-            const modalEl = document.getElementById("galleryModal");
-            modalInstance = bootstrap.Modal.getOrCreateInstance(modalEl);
-            modalInstance.show();
-        }
-
-        function changeSlide(step) {
-            currentIndex += step;
-
-            if (currentIndex >= gallery.length) currentIndex = 0;
-            if (currentIndex < 0) currentIndex = gallery.length - 1;
-
-            document.getElementById("galleryImg").src = `images/gallery${currentIndex + 1}.jpg`;
-            document.getElementById("galleryCaption").innerText = gallery[currentIndex];
-        }
-
-        document.getElementById("galleryModal").addEventListener("hidden.bs.modal", function () {
-        document.querySelectorAll(".modal-backdrop").forEach(el => el.remove());
-        document.body.classList.remove("modal-open");
-    });
-
-        loadGallery();
-    </script>
+    <script src="script/script.js"></script>
 
 </body>
 </html>
